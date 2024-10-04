@@ -1,0 +1,25 @@
+@startuml kampus
+
+
+actor Dosen as dosen
+actor Mahasiswa as mhs
+actor Admin as admin
+
+package kelas {
+    usecase "registrasi" as U1
+    usecase "pilih jadwal" as U2
+    usecase "dapat kelas" as U3
+    usecase "dapat jadwal" as U4
+    usecase "ganti jadwal" as U5
+    usecase "mengajar" as U6
+}
+
+mhs --> U1
+mhs --> U2
+U2 ..> U3 :"include"
+dosen --> U4
+dosen ..> U5 :"extend"
+dosen .> U6:"extend"
+
+
+@enduml
