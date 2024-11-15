@@ -1,0 +1,28 @@
+@startuml
+start
+
+:Mahasiswa Mendaftar Beasiswa;
+:Mahasiswa Mengunggah Dokumen Persyaratan;
+
+if (Dokumen Lengkap?) then (Ya)
+    :Tim Administrasi Memverifikasi Data;
+    if (Data Valid?) then (Ya)
+        :Tim Seleksi Mengevaluasi Kelayakan;
+        if (Calon Memenuhi Syarat?) then (Ya)
+            :Tim Seleksi Menyusun Daftar Penerima Beasiswa;
+            :Persetujuan Akhir Oleh Pejabat Kampus;
+            :Divisi Keuangan Mengelola Dana Beasiswa;
+            :Distribusi Dana kepada Penerima;
+            :Membuat Laporan dan Monitoring Program;
+        else (Tidak)
+            :Calon Ditolak, Kirim Notifikasi;
+        endif
+    else (Tidak)
+        :Dokumen Tidak Valid, Kirim Notifikasi untuk Revisi;
+    endif
+else (Tidak)
+    :Kirim Notifikasi kepada Mahasiswa untuk Melengkapi Dokumen;
+endif
+
+stop
+@enduml
