@@ -1,0 +1,30 @@
+@startuml
+
+left to right direction
+actor Mahasiswa
+actor "Tim Administrasi" as Admin
+actor "Tim Seleksi" as Seleksi
+actor "Divisi Keuangan" as Keuangan
+actor "Pejabat Kampus" as Pejabat
+
+rectangle "Sistem Beasiswa" {
+    Mahasiswa --> (Mendaftar Beasiswa)
+    Mahasiswa --> (Unggah Dokumen Persyaratan)
+    
+    (Mendaftar Beasiswa) --> Admin : "Verifikasi Kelengkapan"
+    Admin --> (Memverifikasi Data)
+    
+    (Memverifikasi Data) --> Seleksi : "Evaluasi Kelayakan"
+    Seleksi --> (Mengevaluasi Kelayakan)
+    
+    (Mengevaluasi Kelayakan) --> Pejabat : "Persetujuan Akhir"
+    Pejabat --> (Menyetujui Daftar Penerima)
+
+    (Menyetujui Daftar Penerima) --> Keuangan : "Distribusi Dana"
+    Keuangan --> (Mengelola Dana dan Distribusi)
+    
+    (Mengelola Dana dan Distribusi) --> (Membuat Laporan dan Monitoring)
+    Pejabat --> (Membuat Laporan dan Monitoring)
+}
+
+@enduml
